@@ -71,16 +71,6 @@ jobs:
     - name: Install Poetry
       uses: snok/install-poetry@v1
 
-    - name: cache deps
-      id: cache-deps
-      uses: actions/cache@v2
-      with:
-        path: .venv
-        key: pydeps-${{ hashFiles('**/poetry.lock') }}
-
-    - run: poetry install --no-interaction --no-root
-      if: steps.cache-deps.outputs.cache-hit != 'true'
-
     - name: Install project
       run: poetry install --no-interaction
 
