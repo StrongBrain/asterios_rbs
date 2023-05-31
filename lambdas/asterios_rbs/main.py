@@ -57,7 +57,7 @@ def parse_last_killed_boss(rss_url: str) -> dict[str, Optional[str]]:
 
 
 def invoke(event, _):
-    logging.info("Testing message goes here.")
+    logging.info("Testing message goes here!.")
     for server_index in SERVER_INDEXES:
         rss_url = RSS_URL.format(server_index=server_index)
         latest_updates = parse_last_killed_boss(rss_url)
