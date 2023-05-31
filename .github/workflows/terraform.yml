@@ -72,7 +72,7 @@ jobs:
       uses: snok/install-poetry@v1
 
     - name: Install project
-      run: poetry install --no-interaction
+      run: poetry install --no-interaction --dir ./lambdas/asterios_rbs/
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
