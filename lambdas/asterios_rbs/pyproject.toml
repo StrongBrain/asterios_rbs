@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "asterios-rbs"
+version = "0.1.0"
+description = "Initial package containing Python lambdas for RSS parsing"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "asterios_rbs"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+lxml = "^4.9.2"
+boto3 = "^1.26"
+
+[tool.poetry.group.test.dependencies]
+requests = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
