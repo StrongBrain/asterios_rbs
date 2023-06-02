@@ -40,7 +40,7 @@ resource "random_string" "r" {
 }
 
 data "archive_file" "simple_lambda_zip" {
-  depends_on = ["null_resource.install_python_dependencies"]
+  depends_on  = ["null_resource.install_python_dependencies"]
   type        = "zip"
   source_dir  = local.lambda_code_path
   output_path = local.lambda_archive_path
@@ -53,7 +53,7 @@ resource "aws_lambda_function" "parse_rss" {
   role             = aws_iam_role.asterios_rb_lambda_role.arn
   handler          = local.lambda_handler
   runtime          = local.lambda_runtime
-  depends_on = ["null_resource.install_python_dependencies"]
+  depends_on       = ["null_resource.install_python_dependencies"]
 }
 
 resource "aws_s3_bucket" "rbs_info" {
@@ -100,10 +100,10 @@ resource "null_resource" "install_python_dependencies" {
 
     environment = {
       source_code_path = local.lambda_code_path
-      function_name = "parse_rss"
-      path_module = path.module
-      runtime = local.lambda_runtime
-      path_cwd = path.cwd
+      function_name    = "parse_rss"
+      path_module      = path.module
+      runtime          = local.lambda_runtime
+      path_cwd         = path.cwd
     }
   }
 }
